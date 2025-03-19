@@ -194,9 +194,24 @@ export default function Home() {
               </Button>
 
               {status === "success" && (
-                <div className="flex items-center justify-center text-green-600 gap-2 bg-white/70 p-4 rounded-xl backdrop-blur-sm">
-                  <CheckCircle2 className="h-5 w-5 flex-shrink-0" />
-                  <p>{message}</p>
+                <div className="flex flex-col items-center justify-center gap-4 bg-white/70 p-4 rounded-xl backdrop-blur-sm">
+                  <div className="flex items-center text-green-600 gap-2">
+                    <CheckCircle2 className="h-5 w-5 flex-shrink-0" />
+                    <p>{message}</p>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <p className="text-sm text-gray-600">Want more whitelist codes?</p>
+                    <Link 
+                      href="https://twitter.com/intent/tweet?text=Just%20secured%20my%20whitelist%20spot%20for%20%40SatsumaDEX%0A%0AThe%20freshest%20DEX%20on%20Citrea!%0A%0AJoin%20the%20juicy%20journey%20here%3A%20https%3A%2F%2Fsatsuma.exchange%20%F0%9F%8D%8A"
+                      target="_blank"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-[#1DA1F2] text-white rounded-full hover:bg-[#1a8cd8] transition-colors"
+                    >
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                      </svg>
+                      Share on Twitter
+                    </Link>
+                  </div>
                 </div>
               )}
 
@@ -321,7 +336,7 @@ export default function Home() {
               className="text-gray-600 hover:text-orange-500 transition-colors"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.13-.05-.18s-.15-.03-.21-.02c-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06-.03.25-.02.39z"/>
               </svg>
               <span className="sr-only">Join Satsuma on Telegram</span>
             </Link>
