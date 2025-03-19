@@ -132,35 +132,37 @@ export default function Home() {
       <div className="absolute top-40 right-10 w-40 h-40 bg-blue-200/30 rounded-full blur-3xl"></div>
       <div className="absolute bottom-40 left-20 w-48 h-48 bg-orange-200/20 rounded-full blur-3xl"></div>
 
-      <header className="w-full py-6 relative z-10">
-        <div className="container flex justify-center items-center">
+      <header className="w-full py-2 relative z-10">
+        <div className="container flex justify-center items-center px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Satsuma-3-IK9Js1n1Pp8UiaR9QLy9Hom1hwTlDK.png"
               alt="Satsuma Logo"
               width={60}
               height={60}
-              className="h-40 w-auto -mt-10"
+              className="h-28 sm:h-36 w-auto -mt-4 sm:-mt-8"
+              priority
             />
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Untitled%20%281000%20x%20375%20px%29-2-4eB8V1KKzvOrmQZdtI5bUWnc3fD5U8.png"
               alt="Satsuma"
               width={200}
               height={75}
-              className="h-auto w-40 -mt-10"
+              className="h-auto w-28 sm:w-36 -mt-6 sm:-mt-8"
+              priority
             />
           </div>
         </div>
       </header>
 
-      <main className="flex-1 flex items-center justify-center p-4 relative z-10">
-        <div className="max-w-md w-full mx-auto text-center space-y-8">
-          <div className="backdrop-blur-sm bg-white/40 p-8 rounded-2xl border border-white/50 shadow-lg">
+      <main className="flex-1 flex items-center justify-center relative z-10 -mt-4">
+        <div className="w-full max-w-md mx-auto text-center space-y-6 px-4 sm:px-6">
+          <div className="backdrop-blur-sm bg-white/40 p-4 sm:p-8 rounded-2xl border border-white/50 shadow-lg">
             <div className="space-y-4">
-              <h1 className="text-3xl font-bold tracking-tight md:text-4xl bg-gradient-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent">
                 Join the Juiciest Whitelist on Citrea 🍊
               </h1>
-              <p className="text-lg text-gray-700">
+              <p className="text-base sm:text-lg text-gray-700">
                 Lock in your early access and squeeze out maximum yields with Satsuma.
               </p>
             </div>
@@ -174,17 +176,17 @@ export default function Home() {
                   onChange={(e) => setCode(e.target.value)}
                   onKeyPress={handleCodeKeyPress}
                   disabled={status === "loading" || status === "success"}
-                  className="w-full border-0 bg-white/70 backdrop-blur-sm focus:ring-2 focus:ring-orange-400 h-12 pl-4 rounded-xl"
+                  className="w-full border-0 bg-white/70 backdrop-blur-sm focus:ring-2 focus:ring-orange-400 h-12 pl-4 rounded-xl text-base sm:text-lg"
                 />
               </div>
 
               <Button
                 onClick={verifyCode}
                 disabled={status === "loading" || !code.trim() || status === "success"}
-                className="w-full bg-gradient-to-r from-orange-500 to-yellow-400 hover:from-orange-600 hover:to-yellow-500 text-white font-medium py-6 rounded-xl h-12 transition-all duration-300 shadow-md hover:shadow-lg"
+                className="w-full bg-gradient-to-r from-orange-500 to-yellow-400 hover:from-orange-600 hover:to-yellow-500 text-white font-medium py-4 sm:py-6 rounded-xl h-12 transition-all duration-300 shadow-md hover:shadow-lg text-base sm:text-lg"
               >
                 {status === "loading" ? (
-                  <span className="flex items-center">
+                  <span className="flex items-center justify-center">
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                     Verifying...
                   </span>
@@ -197,16 +199,16 @@ export default function Home() {
                 <div className="flex flex-col items-center justify-center gap-4 bg-white/70 p-4 rounded-xl backdrop-blur-sm">
                   <div className="flex items-center text-green-600 gap-2">
                     <CheckCircle2 className="h-5 w-5 flex-shrink-0" />
-                    <p>{message}</p>
+                    <p className="text-sm sm:text-base">{message}</p>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <p className="text-sm text-gray-600">Want more whitelist codes?</p>
+                    <p className="text-sm sm:text-base text-gray-600">Want more whitelist codes?</p>
                     <Link 
                       href="https://twitter.com/intent/tweet?text=Just%20secured%20my%20whitelist%20spot%20for%20%40SatsumaDEX%0A%0AThe%20freshest%20DEX%20on%20Citrea!%0A%0AJoin%20the%20juicy%20journey%20here%3A%20https%3A%2F%2Fsatsuma.exchange%20%F0%9F%8D%8A"
                       target="_blank"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-[#1DA1F2] text-white rounded-full hover:bg-[#1a8cd8] transition-colors"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-[#1DA1F2] text-white rounded-full hover:bg-[#1a8cd8] transition-colors text-sm sm:text-base"
                     >
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                       </svg>
                       Share on Twitter
@@ -218,7 +220,7 @@ export default function Home() {
               {status === "error" && (
                 <div className="flex items-center justify-center text-red-600 gap-2 bg-white/70 p-4 rounded-xl backdrop-blur-sm">
                   <AlertCircle className="h-5 w-5 flex-shrink-0" />
-                  <p>{message}</p>
+                  <p className="text-sm sm:text-base">{message}</p>
                 </div>
               )}
             </div>
@@ -226,10 +228,37 @@ export default function Home() {
         </div>
       </main>
 
+      <footer className="w-full py-2 relative z-10 -mt-4">
+        <div className="container flex flex-col items-center space-y-2 px-4 sm:px-6">
+          <div className="flex items-center justify-center space-x-6">
+            <Link 
+              href="https://twitter.com/satsuma_xyz" 
+              target="_blank"
+              className="text-gray-600 hover:text-orange-500 transition-colors"
+            >
+              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              <span className="sr-only">Satsuma on X (Twitter)</span>
+            </Link>
+            <Link 
+              href="https://t.me/satsumahelp" 
+              target="_blank"
+              className="text-gray-600 hover:text-orange-500 transition-colors"
+            >
+              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.13-.05-.18s-.03-.03-.21-.02c-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06-.03.25-.02.39z"/>
+              </svg>
+              <span className="sr-only">Join Satsuma on Telegram</span>
+            </Link>
+          </div>
+        </div>
+      </footer>
+
       {/* Email Collection Modal */}
       {(status === "email_collection" || status === "email_submitting" || status === "email_success") && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl p-6 max-w-md w-full relative shadow-xl">
+          <div className="bg-white rounded-2xl p-4 sm:p-6 max-w-md w-full relative shadow-xl mx-4">
             {status !== "email_success" && (
               <button
                 onClick={resetForm}
@@ -247,7 +276,7 @@ export default function Home() {
                     <CheckCircle2 className="h-8 w-8 text-green-600" />
                   </div>
                   <h3 className="text-xl font-bold mb-2">Whitelist Code Verified!</h3>
-                  <p className="text-gray-600">
+                  <p className="text-sm sm:text-base text-gray-600">
                     Please provide your email address to complete your registration and receive important updates about
                     Satsuma.
                   </p>
@@ -265,7 +294,7 @@ export default function Home() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       onKeyPress={handleEmailKeyPress}
-                      className={`w-full border bg-white/90 focus:ring-2 focus:ring-orange-400 h-12 pl-4 rounded-xl ${
+                      className={`w-full border bg-white/90 focus:ring-2 focus:ring-orange-400 h-12 pl-4 rounded-xl text-base ${
                         emailError ? "border-red-500 focus:border-red-500" : ""
                       }`}
                     />
@@ -274,12 +303,12 @@ export default function Home() {
 
                   <Button
                     onClick={submitEmail}
-                    className="w-full bg-gradient-to-r from-orange-500 to-yellow-400 hover:from-orange-600 hover:to-yellow-500 text-white font-medium py-6 rounded-xl h-12 transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-orange-500 to-yellow-400 hover:from-orange-600 hover:to-yellow-500 text-white font-medium py-4 sm:py-6 rounded-xl h-12 transition-all duration-300 text-base sm:text-lg"
                   >
                     Complete Registration
                   </Button>
 
-                  <div className="text-xs text-gray-500 mt-4 space-y-2">
+                  <div className="text-xs sm:text-sm text-gray-500 mt-4 space-y-2">
                     <p>We'll send important updates about the Satsuma launch to this email.</p>
                     <p>Your email will be stored securely and will not be shared with third parties.</p>
                   </div>
@@ -293,7 +322,7 @@ export default function Home() {
                   <Loader2 className="h-12 w-12 text-orange-500 animate-spin" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Submitting Your Registration...</h3>
-                <p className="text-gray-600">Please wait while we process your information.</p>
+                <p className="text-sm sm:text-base text-gray-600">Please wait while we process your information.</p>
               </div>
             )}
 
@@ -303,7 +332,7 @@ export default function Home() {
                   <CheckCircle2 className="h-12 w-12 text-green-600" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Registration Complete!</h3>
-                <p className="text-gray-600 mb-6">
+                <p className="text-sm sm:text-base text-gray-600 mb-6">
                   You've been successfully added to the Satsuma whitelist.
                 </p>
                 <div className="flex justify-center">
@@ -316,33 +345,6 @@ export default function Home() {
           </div>
         </div>
       )}
-
-      <footer className="w-full py-4 relative z-10">
-        <div className="container flex flex-col items-center space-y-4">
-          <div className="flex items-center justify-center space-x-6">
-            <Link 
-              href="https://twitter.com/satsumaDEX" 
-              target="_blank"
-              className="text-gray-600 hover:text-orange-500 transition-colors"
-            >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-              <span className="sr-only">Satsuma on X (Twitter)</span>
-            </Link>
-            <Link 
-              href="https://t.me/+GeS9gA7OHdsyYzA0" 
-              target="_blank"
-              className="text-gray-600 hover:text-orange-500 transition-colors"
-            >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.13-.05-.18s-.15-.03-.21-.02c-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06-.03.25-.02.39z"/>
-              </svg>
-              <span className="sr-only">Join Satsuma on Telegram</span>
-            </Link>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
