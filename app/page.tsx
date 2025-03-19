@@ -27,6 +27,20 @@ export default function Home() {
     return emailRegex.test(email)
   }
 
+  // Handle Enter key press for code input
+  const handleCodeKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && code.trim() && status !== "loading" && status !== "success") {
+      verifyCode()
+    }
+  }
+
+  // Handle Enter key press for email input
+  const handleEmailKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && email.trim() && status === "email_collection") {
+      submitEmail()
+    }
+  }
+
   const verifyCode = async () => {
     if (!code.trim()) return
 
@@ -158,6 +172,7 @@ export default function Home() {
                   placeholder="Enter your whitelist code"
                   value={code}
                   onChange={(e) => setCode(e.target.value)}
+                  onKeyPress={handleCodeKeyPress}
                   disabled={status === "loading" || status === "success"}
                   className="w-full border-0 bg-white/70 backdrop-blur-sm focus:ring-2 focus:ring-orange-400 h-12 pl-4 rounded-xl"
                 />
@@ -234,6 +249,7 @@ export default function Home() {
                       placeholder="your@email.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
+                      onKeyPress={handleEmailKeyPress}
                       className={`w-full border bg-white/90 focus:ring-2 focus:ring-orange-400 h-12 pl-4 rounded-xl ${
                         emailError ? "border-red-500 focus:border-red-500" : ""
                       }`}
@@ -290,7 +306,7 @@ export default function Home() {
         <div className="container flex flex-col items-center space-y-4">
           <div className="flex items-center justify-center space-x-6">
             <Link 
-              href="https://twitter.com/satsuma_xyz" 
+              href="https://twitter.com/satsumaDEX" 
               target="_blank"
               className="text-gray-600 hover:text-orange-500 transition-colors"
             >
@@ -300,7 +316,7 @@ export default function Home() {
               <span className="sr-only">Satsuma on X (Twitter)</span>
             </Link>
             <Link 
-              href="https://t.me/satsumahelp" 
+              href="https://t.me/+GeS9gA7OHdsyYzA0" 
               target="_blank"
               className="text-gray-600 hover:text-orange-500 transition-colors"
             >
