@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server"
-
-// Sample valid whitelist codes
-const VALID_CODES = ["SATSUMA2024", "b4n4n4zul", "CITREA123", "DEFI4LIFE", "ORANGEYIELD"]
+import { isValidCode } from "../../utils/validCodes"
 
 // SheetDB API endpoint
 const SHEETDB_API_ENDPOINT = process.env.SHEETDB_API_ENDPOINT
@@ -14,12 +12,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "Please provide a valid code" }, { status: 400 })
     }
 
-    const sanitizedCode = code.trim().toLowerCase()
+    const sanitizedCode = code.trim().toUpperCase()
 
-    // Check if code is valid
-    const isValid = VALID_CODES.some((validCode) => validCode.toLowerCase() === sanitizedCode)
-
-    if (!isValid) {
+    // Check if code is in the list of valid codes
+    if (!isValidCode(sanitizedCode)) {
       return NextResponse.json({ message: "Invalid whitelist code" }, { status: 400 })
     }
 
