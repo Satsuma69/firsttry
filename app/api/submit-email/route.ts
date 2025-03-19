@@ -9,13 +9,13 @@ export async function POST(request: Request) {
 
     // Input validation and sanitization
     if (!code || typeof code !== "string") {
-      return NextResponse.json({ message: "Please provide a valid code" }, { status: 400 })
+      return NextResponse.json({ message: "Please provide your whitelist code" }, { status: 400 })
     }
 
-    const sanitizedCode = code.trim().toLowerCase()
+    const sanitizedCode = code.trim().toUpperCase()
 
     if (!email || typeof email !== "string") {
-      return NextResponse.json({ message: "Please provide an email address" }, { status: 400 })
+      return NextResponse.json({ message: "Please provide your email address" }, { status: 400 })
     }
 
     const sanitizedEmail = email.trim().toLowerCase()
@@ -23,7 +23,7 @@ export async function POST(request: Request) {
     // Validate email format
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     if (!emailRegex.test(sanitizedEmail)) {
-      return NextResponse.json({ message: "Please provide a valid email address" }, { status: 400 })
+      return NextResponse.json({ message: "Please enter a valid email address" }, { status: 400 })
     }
 
     if (!SHEETDB_API_ENDPOINT) {
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
     if (existingEmailEntries && existingEmailEntries.length > 0) {
       return NextResponse.json(
-        { message: "This email is already registered for the whitelist" },
+        { message: "This email is already on our whitelist! Want another spot? Use a different email." },
         { status: 409 }
       )
     }
@@ -71,14 +71,14 @@ export async function POST(request: Request) {
 
     return NextResponse.json(
       {
-        message: "Success! You've been added to the whitelist.",
+        message: "🎉 Welcome to Satsuma! You're officially on the whitelist.",
         email: sanitizedEmail,
       },
       { status: 200 }
     )
   } catch (error) {
     console.error("Error submitting email:", error)
-    return NextResponse.json({ message: "Server error. Please try again later." }, { status: 500 })
+    return NextResponse.json({ message: "Something went wrong. Please try again later." }, { status: 500 })
   }
 }
 
