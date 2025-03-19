@@ -1,9 +1,6 @@
 import { NextResponse } from "next/server"
 
-// Sample valid whitelist codes (should match the ones in verify-code.ts)
-const VALID_CODES = ["SATSUMA2024", "b4n4n4zul", "CITREA123", "DEFI4LIFE", "ORANGEYIELD"]
-
-// SheetDB API endpoint - replace with your actual endpoint
+// SheetDB API endpoint
 const SHEETDB_API_ENDPOINT = process.env.SHEETDB_API_ENDPOINT
 
 export async function POST(request: Request) {
@@ -29,13 +26,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "Please provide a valid email address" }, { status: 400 })
     }
 
-    // Check if code is valid
-    const isValid = VALID_CODES.some((validCode) => validCode.toLowerCase() === sanitizedCode)
-
-    if (!isValid) {
-      return NextResponse.json({ message: "Invalid whitelist code" }, { status: 400 })
-    }
-
     if (!SHEETDB_API_ENDPOINT) {
       return NextResponse.json(
         { message: "Server configuration error. Please try again later." },
@@ -43,11 +33,11 @@ export async function POST(request: Request) {
       )
     }
 
-    // Check if email already exists in SheetDB
-    const checkResponse = await fetch(`${SHEETDB_API_ENDPOINT}/search?email=${sanitizedEmail}`)
-    const existingEntries = await checkResponse.json()
+    // Check if email already exists
+    const emailCheckResponse = await fetch(`${SHEETDB_API_ENDPOINT}/search?email=${sanitizedEmail}`)
+    const existingEmailEntries = await emailCheckResponse.json()
 
-    if (existingEntries && existingEntries.length > 0) {
+    if (existingEmailEntries && existingEmailEntries.length > 0) {
       return NextResponse.json(
         { message: "This email is already registered for the whitelist" },
         { status: 409 }
