@@ -7,9 +7,26 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Satsuma - Join the Whitelist",
-  description: "Secure early access to Satsuma and maximize your yield.",
-    generator: 'v0.dev'
+  title: "Satsuma - The Freshest DEX on Citrea 🍊",
+  description: "Join the juiciest whitelist on Citrea and squeeze out maximum yields with Satsuma DEX.",
+  icons: {
+    icon: [
+      {
+        url: "/favicon.ico",
+        sizes: "any"
+      },
+      {
+        url: "/icon.png",
+        type: "image/png",
+        sizes: "32x32"
+      },
+      {
+        url: "/apple-touch-icon.png",
+        type: "image/png",
+        sizes: "180x180"
+      }
+    ]
+  }
 }
 
 export default function RootLayout({
