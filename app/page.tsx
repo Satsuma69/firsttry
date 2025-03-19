@@ -219,14 +219,6 @@ export default function Home() {
                 <div className="flex items-center justify-center text-red-600 gap-2 bg-white/70 p-4 rounded-xl backdrop-blur-sm">
                   <AlertCircle className="h-5 w-5 flex-shrink-0" />
                   <p className="text-sm">{message}</p>
-                  {(message === "This whitelist code has already been used" || message === "Invalid whitelist code") && (
-                    <Button
-                      onClick={resetForm}
-                      className="ml-2 text-xs bg-transparent hover:bg-red-50 text-red-600 px-2 py-1 rounded"
-                    >
-                      Try Another Code
-                    </Button>
-                  )}
                 </div>
               )}
             </div>

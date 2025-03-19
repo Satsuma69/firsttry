@@ -32,7 +32,7 @@ export async function POST(request: Request) {
 
     if (existingCodeEntries && existingCodeEntries.length > 0) {
       return NextResponse.json(
-        { message: "This code has already been claimed. Need a new one? Share on Twitter!" },
+        { message: "This fruit has already been picked. Need a new one? Check our Twitter!" },
         { status: 409 }
       )
     }
