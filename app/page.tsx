@@ -331,7 +331,7 @@ export default function Home() {
               <span className="sr-only">Satsuma on X (Twitter)</span>
             </Link>
             <Link 
-              href="https://t.me/satsumahelp" 
+              href="https://t.me/+GeS9gA7OHdsyYzA0" 
               target="_blank"
               className="text-gray-600 hover:text-orange-500 transition-colors"
             >
